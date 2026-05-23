@@ -6,7 +6,7 @@ export default function Hero() {
     <section id="hero" style={{
       minHeight: "100vh", position: "relative",
       display: "flex", flexDirection: "column", justifyContent: "flex-end",
-      padding: "0 60px 80px", overflow: "hidden",
+      padding: "0 clamp(16px, 5vw, 60px) clamp(40px, 10vw, 80px)", overflow: "hidden",
     }}>
       {/* Background */}
       <div style={{
@@ -24,7 +24,7 @@ export default function Hero() {
       }} />
 
       {/* Stat Strip */}
-      <div style={{
+      <div className="hero-stat-strip" style={{
         position: "absolute", right: 0, top: "50%",
         transform: "translateY(-50%)",
         display: "flex", flexDirection: "column",
@@ -78,22 +78,23 @@ export default function Hero() {
       </p>
 
       <div style={{
-        display: "flex", alignItems: "center", gap: 32, marginTop: 48,
+        display: "flex", alignItems: "center", gap: "clamp(16px, 4vw, 32px)", marginTop: "clamp(24px, 5vw, 48px)",
         opacity: 0, animation: "fadeUp 0.9s 0.9s forwards",
+        flexWrap: "wrap",
       }}>
         <Link href="#contact" className="btn-primary">Start a Project</Link>
         <Link href="#portfolio" className="btn-ghost">View Our Work</Link>
       </div>
 
       <div style={{
-        position: "absolute", right: 60, bottom: 80,
+        position: "absolute", right: "clamp(16px, 5vw, 60px)", bottom: "clamp(40px, 10vw, 80px)",
         writingMode: "vertical-rl",
         fontFamily: "var(--font-ui)", fontSize: 10,
         letterSpacing: "0.2em", textTransform: "uppercase",
         color: "var(--muted)",
         opacity: 0, animation: "fadeIn 1s 1.4s forwards",
         display: "flex", alignItems: "center", gap: 12,
-      }}>
+      }} className="hero-scroll">
         <span style={{ width: 1, height: 50, background: "linear-gradient(to bottom, transparent, var(--gold))", display: "block" }} />
         Scroll
       </div>

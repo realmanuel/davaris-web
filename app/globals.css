@@ -161,8 +161,208 @@ body::before {
 }
 .section-title em { font-style: italic; color: var(--gold); }
 
+/* Tablet and up */
+@media (max-width: 1024px) {
+  .hide-tablet { display: none !important; }
+}
+
 /* Mobile */
-@media (max-width: 900px) {
-  .nav-links-wrap, .nav-cta { display: none; }
+@media (max-width: 768px) {
+  .hide-mobile { display: none !important; }
+  
+  /* Base spacing */
+  section {
+    padding: clamp(60px, 10vw, 80px) clamp(16px, 5vw, 40px) !important;
+  }
+
+  nav {
+    padding: clamp(12px, 3vw, 16px) clamp(16px, 5vw, 24px) !important;
+  }
+
+  /* Navbar adjustments */
+  .nav-links-wrap { display: none !important; }
+  .nav-cta-desktop { display: none !important; }
   .nav-toggle { display: flex !important; }
+
+  /* Typography responsiveness */
+  .section-title {
+    font-size: clamp(28px, 7vw, 48px) !important;
+  }
+
+  .section-label {
+    font-size: clamp(8px, 2vw, 10px) !important;
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .section-label::before {
+    width: 24px;
+  }
+
+  /* Hero section */
+  #hero {
+    padding: 0 clamp(16px, 5vw, 24px) clamp(40px, 10vw, 60px);
+  }
+
+  .hero-stat-strip { display: none !important; }
+  .hero-scroll { display: none !important; }
+
+  /* Services grid */
+  .services-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  .services-header {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 24px !important;
+  }
+
+  /* About section */
+  #about {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+  }
+
+  .about-visual { 
+    height: 300px !important;
+  }
+
+  .about-values-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  /* Process grid */
+  .process-steps {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 20px !important;
+  }
+
+  .process-steps::before { display: none !important; }
+  
+  .process-step-item {
+    padding: 0 12px !important;
+  }
+
+  /* Portfolio header */
+  .portfolio-header {
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 16px !important;
+  }
+
+  .portfolio-header > div {
+    min-width: 0;
+  }
+
+  .portfolio-header .btn-ghost {
+    white-space: nowrap;
+  }
+
+  /* Portfolio grid */
+  .portfolio-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+
+  .portfolio-item {
+    grid-column: span 1 !important;
+    aspect-ratio: 16/9 !important;
+  }
+
+  /* Testimonials */
+  #testimonials {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .testimonials-header { 
+    padding: clamp(40px, 10vw, 60px) clamp(16px, 5vw, 24px) 0;
+  }
+
+  .testimonials-scroll {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  .testimonials-card {
+    width: clamp(280px, 90vw, 400px) !important;
+    padding: clamp(24px, 5vw, 40px) !important;
+  }
+
+  /* Contact section */
+  #contact {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+  }
+
+  .contact-form-row {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Footer */
+  footer {
+    padding: clamp(40px, 10vw, 60px) clamp(16px, 5vw, 24px) !important;
+    grid-template-columns: 1fr !important;
+    gap: 30px !important;
+  }
+
+  .footer-bottom {
+    padding: clamp(16px, 5vw, 24px) clamp(16px, 5vw, 24px) !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+    text-align: center !important;
+  }
+
+  .footer-bottom-links {
+    flex-direction: column !important;
+    gap: 8px !important;
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    grid-template-areas:
+      "brand services"
+      "company contact" !important;
+  }
+
+  .footer-brand { grid-area: brand !important; }
+  .footer-services { grid-area: services !important; }
+  .footer-company { grid-area: company !important; }
+  .footer-contact { grid-area: contact !important; }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+  section {
+    padding: clamp(40px, 8vw, 60px) clamp(12px, 4vw, 16px) !important;
+  }
+
+  .section-title {
+    font-size: clamp(24px, 6vw, 36px) !important;
+  }
+
+  .section-label {
+    font-size: clamp(7px, 1.5vw, 9px) !important;
+  }
+
+  .btn-primary {
+    padding: clamp(12px, 3vw, 16px) clamp(16px, 4vw, 24px) !important;
+    font-size: clamp(9px, 2vw, 11px) !important;
+  }
+
+  .process-steps {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 16px !important;
+  }
+
+  .testimonials-card {
+    width: calc(100vw - 32px) !important;
+  }
+
+  nav {
+    padding: clamp(12px, 2vw, 14px) clamp(12px, 3vw, 16px) !important;
+  }
 }

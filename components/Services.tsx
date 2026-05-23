@@ -15,10 +15,10 @@ export default function Services() {
   useReveal();
 
   return (
-    <section id="services" style={{ padding: "120px 60px", background: "var(--off-black)" }}>
-      <div style={{
+    <section id="services" style={{ padding: "clamp(60px, 12vw, 120px) clamp(16px, 5vw, 60px)", background: "var(--off-black)" }}>
+      <div className="services-header" style={{
         display: "flex", justifyContent: "space-between", alignItems: "flex-end",
-        marginBottom: 72, borderBottom: "1px solid var(--border)", paddingBottom: 48,
+        marginBottom: "clamp(40px, 10vw, 72px)", borderBottom: "1px solid var(--border)", paddingBottom: "clamp(24px, 5vw, 48px)",
       }}>
         <div>
           <div className="section-label reveal">Our Services</div>
@@ -27,14 +27,14 @@ export default function Services() {
           </h2>
         </div>
         <div className="reveal reveal-delay-2" style={{ maxWidth: 360 }}>
-          <p style={{ fontSize: 15, color: "var(--muted)", lineHeight: 1.7, marginBottom: 24 }}>
+          <p style={{ fontSize: "clamp(13px, 2vw, 15px)", color: "var(--muted)", lineHeight: 1.7, marginBottom: 24 }}>
             From first impression to final conversion — we handle every layer of your digital presence with precision.
           </p>
           <Link href="#contact" className="btn-primary">Explore All Services</Link>
         </div>
       </div>
 
-      <div style={{
+      <div className="services-grid" style={{
         display: "grid", gridTemplateColumns: "repeat(3, 1fr)",
         gap: 1, background: "var(--border)",
       }}>
@@ -42,23 +42,23 @@ export default function Services() {
           <div key={s.num}
             className={`reveal${i % 3 === 1 ? " reveal-delay-1" : i % 3 === 2 ? " reveal-delay-2" : ""}`}
             style={{
-              background: "var(--off-black)", padding: "44px 40px",
+              background: "var(--off-black)", padding: "clamp(28px, 5vw, 44px) clamp(24px, 5vw, 40px)",
               transition: "background 0.4s", position: "relative", overflow: "hidden",
             }}
             onMouseEnter={(e) => (e.currentTarget.style.background = "var(--dark)")}
             onMouseLeave={(e) => (e.currentTarget.style.background = "var(--off-black)")}
           >
             <div style={{
-              fontFamily: "var(--font-display)", fontSize: 64, fontWeight: 300,
+              fontFamily: "var(--font-display)", fontSize: "clamp(42px, 8vw, 64px)", fontWeight: 300,
               color: "rgba(200,169,110,0.12)", lineHeight: 1, marginBottom: 24,
             }}>{s.num}</div>
             <div style={{
-              fontFamily: "var(--font-ui)", fontSize: 15, fontWeight: 600,
+              fontFamily: "var(--font-ui)", fontSize: "clamp(13px, 2vw, 15px)", fontWeight: 600,
               letterSpacing: "0.05em", marginBottom: 12,
             }}>{s.name}</div>
-            <div style={{ fontSize: 13, color: "var(--muted)", lineHeight: 1.7, marginBottom: 24 }}>{s.desc}</div>
+            <div style={{ fontSize: "clamp(12px, 2vw, 13px)", color: "var(--muted)", lineHeight: 1.7, marginBottom: 24 }}>{s.desc}</div>
             <Link href="#contact" style={{
-              fontFamily: "var(--font-ui)", fontSize: 10, fontWeight: 600,
+              fontFamily: "var(--font-ui)", fontSize: "clamp(9px, 1.5vw, 10px)", fontWeight: 600,
               letterSpacing: "0.18em", textTransform: "uppercase",
               color: "var(--gold)", textDecoration: "none",
               display: "inline-flex", alignItems: "center", gap: 8,

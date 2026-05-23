@@ -14,8 +14,8 @@ export default function Portfolio() {
   useReveal();
 
   return (
-    <section id="portfolio" style={{ padding: "120px 60px" }}>
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: 60 }}>
+    <section id="portfolio" style={{ padding: "clamp(60px, 12vw, 120px) clamp(16px, 5vw, 60px)" }}>
+      <div className="portfolio-header" style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "clamp(40px, 8vw, 60px)", flexWrap: "wrap", gap: 20 }}>
         <div>
           <div className="section-label reveal">Our Work</div>
           <h2 className="section-title reveal reveal-delay-1">Projects That Speak<br />for <em>Themselves.</em></h2>
@@ -23,11 +23,11 @@ export default function Portfolio() {
         <Link href="#contact" className="btn-ghost reveal reveal-delay-2" style={{ color: "var(--muted)" }}>View All Projects</Link>
       </div>
 
-      <div className="reveal" style={{
-        display: "grid", gridTemplateColumns: "repeat(12, 1fr)", gap: 16,
+      <div className="reveal portfolio-grid" style={{
+        display: "grid", gridTemplateColumns: "repeat(12, 1fr)", gap: "clamp(12px, 2vw, 16px)",
       }}>
         {items.map((item) => (
-          <div key={item.name}
+          <div key={item.name} className="portfolio-item"
             style={{
               gridColumn: `span ${item.col}`,
               position: "relative", overflow: "hidden",
@@ -57,11 +57,11 @@ export default function Portfolio() {
               backgroundImage: "repeating-linear-gradient(45deg, rgba(255,255,255,0.015) 0px, rgba(255,255,255,0.015) 1px, transparent 1px, transparent 20px)",
             }} />
             <div style={{
-              position: "absolute", top: 24, left: 24,
-              fontFamily: "var(--font-ui)", fontSize: 10, fontWeight: 600,
+              position: "absolute", top: "clamp(12px, 2vw, 24px)", left: "clamp(12px, 2vw, 24px)",
+              fontFamily: "var(--font-ui)", fontSize: "clamp(8px, 1.5vw, 10px)", fontWeight: 600,
               letterSpacing: "0.15em", textTransform: "uppercase",
               color: "var(--muted)", border: "1px solid var(--border)",
-              padding: "6px 12px", background: "rgba(8,8,8,0.6)", backdropFilter: "blur(8px)",
+              padding: "clamp(4px, 1vw, 6px) clamp(8px, 1.5vw, 12px)", background: "rgba(8,8,8,0.6)", backdropFilter: "blur(8px)",
             }}>{item.label}</div>
             <div className="p-plus" style={{
               position: "absolute", top: "50%", left: "50%",
@@ -76,10 +76,10 @@ export default function Portfolio() {
               position: "absolute", inset: 0,
               background: "linear-gradient(to top, rgba(8,8,8,0.9) 0%, transparent 50%)",
               display: "flex", flexDirection: "column", justifyContent: "flex-end",
-              padding: 28, opacity: 0, transition: "opacity 0.4s",
+              padding: "clamp(16px, 3vw, 28px)", opacity: 0, transition: "opacity 0.4s",
             }}>
-              <div style={{ fontFamily: "var(--font-ui)", fontSize: 9, letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--gold)", marginBottom: 6 }}>{item.tag}</div>
-              <div style={{ fontFamily: "var(--font-display)", fontSize: 22, fontWeight: 400, lineHeight: 1.2 }}>{item.name}</div>
+              <div style={{ fontFamily: "var(--font-ui)", fontSize: "clamp(7px, 1.5vw, 9px)", letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--gold)", marginBottom: 6 }}>{item.tag}</div>
+              <div style={{ fontFamily: "var(--font-display)", fontSize: "clamp(16px, 3vw, 22px)", fontWeight: 400, lineHeight: 1.2 }}>{item.name}</div>
             </div>
           </div>
         ))}

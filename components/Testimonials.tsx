@@ -10,24 +10,24 @@ const testimonials = [
 ];
 
 const Card = ({ t }: { t: typeof testimonials[0] }) => (
-  <div style={{
+  <div className="testimonials-card" style={{
     width: 400, flexShrink: 0,
     background: "var(--dark)", border: "1px solid var(--border)",
-    padding: 40, position: "relative",
+    padding: "clamp(24px, 4vw, 40px)", position: "relative",
   }}>
-    <div style={{ position: "absolute", top: 40, right: 40, color: "var(--gold)", fontSize: 12, letterSpacing: 2 }}>★★★★★</div>
-    <div style={{ fontFamily: "var(--font-display)", fontSize: 64, color: "var(--gold)", opacity: 0.3, lineHeight: 0.8, marginBottom: 16 }}>"</div>
-    <p style={{ fontSize: 14, color: "var(--muted)", lineHeight: 1.8, marginBottom: 28, fontStyle: "italic" }}>{t.text}</p>
+    <div style={{ position: "absolute", top: "clamp(20px, 3vw, 40px)", right: "clamp(20px, 3vw, 40px)", color: "var(--gold)", fontSize: "clamp(10px, 1.5vw, 12px)", letterSpacing: 2 }}>★★★★★</div>
+    <div style={{ fontFamily: "var(--font-display)", fontSize: "clamp(40px, 8vw, 64px)", color: "var(--gold)", opacity: 0.3, lineHeight: 0.8, marginBottom: 16 }}>"</div>
+    <p style={{ fontSize: "clamp(12px, 1.8vw, 14px)", color: "var(--muted)", lineHeight: 1.8, marginBottom: 28, fontStyle: "italic" }}>{t.text}</p>
     <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
       <div style={{
-        width: 40, height: 40, borderRadius: "50%",
+        width: "clamp(32px, 6vw, 40px)", height: "clamp(32px, 6vw, 40px)", borderRadius: "50%",
         background: "linear-gradient(135deg, var(--gold), var(--gold-light))",
         display: "flex", alignItems: "center", justifyContent: "center",
-        fontFamily: "var(--font-ui)", fontSize: 13, fontWeight: 700, color: "var(--black)", flexShrink: 0,
+        fontFamily: "var(--font-ui)", fontSize: "clamp(11px, 2vw, 13px)", fontWeight: 700, color: "var(--black)", flexShrink: 0,
       }}>{t.initials}</div>
       <div>
-        <div style={{ fontFamily: "var(--font-ui)", fontSize: 13, fontWeight: 600 }}>{t.name}</div>
-        <div style={{ fontSize: 11, color: "var(--muted)" }}>{t.role}</div>
+        <div style={{ fontFamily: "var(--font-ui)", fontSize: "clamp(11px, 1.8vw, 13px)", fontWeight: 600 }}>{t.name}</div>
+        <div style={{ fontSize: "clamp(9px, 1.5vw, 11px)", color: "var(--muted)" }}>{t.role}</div>
       </div>
     </div>
   </div>
@@ -37,14 +37,14 @@ export default function Testimonials() {
   useReveal();
 
   return (
-    <section id="testimonials" style={{ padding: "120px 60px", background: "var(--off-black)", overflow: "hidden" }}>
-      <div style={{ marginBottom: 72 }}>
+    <section id="testimonials" style={{ padding: "clamp(60px, 12vw, 120px) 0", background: "var(--off-black)", overflow: "hidden" }}>
+      <div className="testimonials-header" style={{ marginBottom: "clamp(32px, 8vw, 72px)", paddingLeft: "clamp(16px, 5vw, 60px)", paddingRight: "clamp(16px, 5vw, 60px)" }}>
         <div className="section-label reveal">Client Voices</div>
         <h2 className="section-title reveal reveal-delay-1">Trusted by Brands That<br /><em>Mean Business.</em></h2>
       </div>
-      <div style={{ overflow: "hidden", marginTop: 48 }}>
+      <div className="testimonials-scroll" style={{ overflow: "hidden", marginTop: "clamp(24px, 5vw, 48px)" }}>
         <div style={{
-          display: "flex", gap: 24,
+          display: "flex", gap: "clamp(16px, 3vw, 24px)",
           animation: "scroll 30s linear infinite",
           width: "max-content",
         }}
