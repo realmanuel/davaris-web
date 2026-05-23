@@ -38,7 +38,7 @@ export default function Navbar() {
             <Link href={`#${id}`} className="nav-link" style={{
               fontFamily: "var(--font-ui)", fontSize: 12, fontWeight: 500,
               letterSpacing: "0.12em", textTransform: "uppercase",
-              color: "var(--muted)", textDecoration: "none", hover: "var(--gold)"
+              color: "var(--muted)", textDecoration: "none",
             }}>
               {id === "portfolio" ? "Work" : id.charAt(0).toUpperCase() + id.slice(1)}
             </Link>
