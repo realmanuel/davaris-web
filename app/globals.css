@@ -112,6 +112,40 @@ body::before {
   margin-bottom: 16px;
   display: flex; align-items: center; gap: 16px;
 }
+
+.contact-item:hover .contact-item-icon {
+  border-color: var(--gold) !important;
+  background: rgba(200,169,110,0.12);
+}
+
+.social-icon:hover {
+  border-color: var(--gold) !important;
+  background: rgba(200,169,110,0.12);
+}
+
+.nav-link {
+  transition: color 0.3s;
+}
+.nav-link:hover {
+  color: var(--gold) !important;
+}
+
+.footer-link {
+  transition: color 0.3s ease-out;
+}
+.footer-link:hover {
+  color: var(--white) !important;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus,
+.contact-form select:focus {
+  border-color: var(--gold) !important;
+  box-shadow: 0 0 0 1px rgba(200,169,110,0.25);
+  outline: none;
+}
+
+
 .section-label::before {
   content: '';
   width: 32px; height: 1px;

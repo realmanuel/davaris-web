@@ -35,10 +35,10 @@ export default function Navbar() {
       }}>
         {["services", "about", "portfolio", "contact"].map((id) => (
           <li key={id}>
-            <Link href={`#${id}`} style={{
+            <Link href={`#${id}`} className="nav-link" style={{
               fontFamily: "var(--font-ui)", fontSize: 12, fontWeight: 500,
               letterSpacing: "0.12em", textTransform: "uppercase",
-              color: "var(--muted)", textDecoration: "none",
+              color: "var(--muted)", textDecoration: "none", hover: "var(--gold)"
             }}>
               {id === "portfolio" ? "Work" : id.charAt(0).toUpperCase() + id.slice(1)}
             </Link>
@@ -46,7 +46,7 @@ export default function Navbar() {
         ))}
       </ul>
 
-      <Link href="#contact" className="nav-cta" style={{
+      <Link href="#contact" className="nav-cta btn-primary" style={{
         fontFamily: "var(--font-ui)", fontSize: 11, fontWeight: 600,
         letterSpacing: "0.15em", textTransform: "uppercase",
         color: "var(--black)", background: "var(--gold)",
@@ -78,7 +78,7 @@ export default function Navbar() {
           zIndex: 999, borderBottom: "1px solid var(--border)",
         }}>
           {["services", "about", "portfolio", "contact"].map((id) => (
-            <Link key={id} href={`#${id}`}
+            <Link key={id} href={`#${id}`} className="nav-link"
               onClick={() => setMobileOpen(false)}
               style={{
                 fontFamily: "var(--font-ui)", fontSize: 14,
@@ -88,6 +88,18 @@ export default function Navbar() {
               {id === "portfolio" ? "Work" : id.charAt(0).toUpperCase() + id.slice(1)}
             </Link>
           ))}
+          <Link href="#contact" 
+            onClick={() => setMobileOpen(false)}
+            className="btn-primary"
+            style={{
+              fontFamily: "var(--font-ui)", fontSize: 11, fontWeight: 600,
+              letterSpacing: "0.15em", textTransform: "uppercase",
+              color: "var(--black)", background: "var(--gold)",
+              padding: "10px 24px", textDecoration: "none",
+              transition: "background 0.3s", display: "inline-block", width: "fit-content",
+            }}>
+            Start a Project
+          </Link>
         </div>
       )}
     </nav>

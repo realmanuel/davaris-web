@@ -32,12 +32,12 @@ export default function Contact() {
             { icon: "💬", label: "WhatsApp", value: "Chat With Us Directly", href: "https://wa.me/1234567890" },
             { icon: "📅", label: "Book a Call", value: "Schedule a Free Consultation", href: "#" },
           ].map((m) => (
-            <a key={m.label} href={m.href}
+            <a key={m.label} href={m.href} className="contact-item"
               style={{ display: "flex", alignItems: "center", gap: 20, padding: "24px 0", borderBottom: "1px solid var(--border)", textDecoration: "none", color: "var(--white)", transition: "padding-left 0.3s" }}
               onMouseEnter={(e) => (e.currentTarget.style.paddingLeft = "12px")}
               onMouseLeave={(e) => (e.currentTarget.style.paddingLeft = "0")}
             >
-              <div style={{ width: 44, height: 44, border: "1px solid var(--border)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 18, transition: "border-color 0.3s" }}>
+              <div className="contact-item-icon" style={{ width: 44, height: 44, border: "1px solid var(--border)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 18, transition: "border-color 0.3s, background 0.3s" }}>
                 {m.icon}
               </div>
               <div>
@@ -50,7 +50,7 @@ export default function Contact() {
       </div>
 
       {/* Form */}
-      <div className="reveal reveal-delay-2" style={{ display: "flex", flexDirection: "column", gap: 20 }}>
+      <div className="reveal reveal-delay-2 contact-form" style={{ display: "flex", flexDirection: "column", gap: 20 }}>
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
           {[{ label: "Full Name", type: "text", placeholder: "Your name" }, { label: "Email Address", type: "email", placeholder: "your@email.com" }].map((f) => (
             <div key={f.label} style={{ display: "flex", flexDirection: "column", gap: 8 }}>

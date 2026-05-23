@@ -16,12 +16,15 @@ export default function Footer() {
           </p>
           <div style={{ display: "flex", gap: 12 }}>
             {["in", "IG", "𝕏", "Be"].map((s) => (
-              <a key={s} href="#" style={{
+              <a key={s} href="#" className="social-icon" style={{
                 width: 36, height: 36, border: "1px solid var(--border)",
                 display: "flex", alignItems: "center", justifyContent: "center",
                 fontSize: 14, textDecoration: "none", color: "var(--muted)",
-                transition: "border-color 0.3s, color 0.3s",
-              }}>{s}</a>
+                transition: "border-color 0.3s, color 0.3s, background 0.3s",
+              }}>
+                  {s}
+                
+                </a>
             ))}
           </div>
         </div>
@@ -48,7 +51,7 @@ export default function Footer() {
             <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: 10 }}>
               {col.links.map((l, i) => (
                 <li key={l}>
-                  <Link href={(col.hrefs ? col.hrefs[i] : col.href) ?? "#"} style={{ fontSize: 13, color: "var(--muted)", textDecoration: "none", transition: "color 0.3s" }}>
+                  <Link href={(col.hrefs ? col.hrefs[i] : col.href) ?? "#"} className="footer-link" style={{ fontSize: 13, color: "var(--muted)", textDecoration: "none" }}>
                     {l}
                   </Link>
                 </li>
@@ -65,7 +68,7 @@ export default function Footer() {
         <p style={{ fontSize: 12, color: "rgba(245,244,240,0.25)" }}>© 2026 Davaris. All rights reserved.</p>
         <div style={{ display: "flex", gap: 24 }}>
           {["Privacy Policy", "Terms of Service"].map((l) => (
-            <Link key={l} href="#" style={{ fontSize: 11, color: "rgba(245,244,240,0.25)", textDecoration: "none" }}>{l}</Link>
+            <Link key={l} href="#" className = "footer-link" style={{ fontSize: 11, color: "rgba(245,244,240,0.25)", textDecoration: "none" }}>{l}</Link>
           ))}
         </div>
       </div>
