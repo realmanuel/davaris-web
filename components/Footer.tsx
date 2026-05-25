@@ -1,74 +1,230 @@
-import Link from "next/link";
+"use client";
+import type React from "react";
+import { SITE_CONFIG } from "@/lib/config";
 
 export default function Footer() {
+  const linkStyle: React.CSSProperties = {
+    fontSize: "clamp(11px, 1.8vw, 13px)",
+    color: "var(--muted)",
+    textDecoration: "none",
+    transition: "color 0.3s",
+    cursor: "pointer",
+  };
+
+  const scrollTo = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const serviceLinks = [
+    "Website Development",
+    "App Development",
+    "UI/UX Design",
+    "Branding",
+    "Social Media",
+    "Digital Strategy",
+  ];
+
+  const companyLinks = [
+    { label: "About Davaris",  id: "about"        },
+    { label: "Our Process",    id: "process"      },
+    { label: "Portfolio",      id: "portfolio"    },
+    { label: "Testimonials",   id: "testimonials" },
+    { label: "Contact",        id: "contact"      },
+  ];
+
+  const contactLinks = [
+    { label: SITE_CONFIG.email,          href: `mailto:${SITE_CONFIG.email}`,                                                             external: true  },
+    { label: "WhatsApp Chat",            href: `https://wa.me/${SITE_CONFIG.whatsapp.number}`,                                            external: true  },
+    { label: "Book a Call",              href: SITE_CONFIG.calendly,                                                                       external: true  },
+    { label: "Instagram",                href: SITE_CONFIG.socials.instagram,                                                              external: true  },
+    { label: "LinkedIn",                 href: SITE_CONFIG.socials.linkedin,                                                               external: true  },
+  ];
+
+  const socials = [
+    { label: "in", href: SITE_CONFIG.socials.linkedin  },
+    { label: "IG", href: SITE_CONFIG.socials.instagram },
+    { label: "𝕏",  href: SITE_CONFIG.socials.twitter   },
+    { label: "Be", href: SITE_CONFIG.socials.behance   },
+  ];
+
   return (
     <>
-      <footer className="footer-grid" style={{
-        padding: "clamp(40px, 10vw, 60px) clamp(16px, 5vw, 60px)", borderTop: "1px solid var(--border)",
-        display: "grid", gridTemplateColumns: "2fr 1fr 1fr 1fr", gap: "clamp(30px, 5vw, 60px)",
-      }}>
+      <footer
+        className="footer-grid"
+        style={{
+          padding: "clamp(40px, 10vw, 60px) clamp(16px, 5vw, 60px)",
+          borderTop: "1px solid var(--border)",
+          display: "grid",
+          gridTemplateColumns: "2fr 1fr 1fr 1fr",
+          gap: "clamp(30px, 5vw, 60px)",
+        }}
+      >
+        {/* ── Brand ── */}
         <div className="footer-brand">
-          <span style={{ fontFamily: "var(--font-ui)", fontWeight: 800, fontSize: "clamp(18px, 3vw, 22px)", letterSpacing: "0.12em", marginBottom: 16, display: "block" }}>
+          <span
+            style={{
+              fontFamily: "var(--font-ui)", fontWeight: 800,
+              fontSize: "clamp(18px, 3vw, 22px)", letterSpacing: "0.12em",
+              marginBottom: 16, display: "block",
+            }}
+          >
             DAV<span style={{ color: "var(--gold)" }}>A</span>RIS
           </span>
-          <p style={{ fontSize: "clamp(11px, 1.8vw, 13px)", color: "var(--muted)", lineHeight: 1.6, maxWidth: 260, marginBottom: 28 }}>
-            Building digital futures for ambitious brands. Premium design, development, and strategy — all under one roof.
+          <p
+            style={{
+              fontSize: "clamp(11px, 1.8vw, 13px)", color: "var(--muted)",
+              lineHeight: 1.6, maxWidth: 260, marginBottom: 28,
+            }}
+          >
+            Building digital futures for ambitious brands. Premium design,
+            development, and strategy — all under one roof.
           </p>
+
+          {/* Socials */}
           <div style={{ display: "flex", gap: 12 }}>
-            {["in", "IG", "𝕏", "Be"].map((s) => (
-              <a key={s} href="#" className="social-icon" style={{
-                width: "clamp(30px, 5vw, 36px)", height: "clamp(30px, 5vw, 36px)", border: "1px solid var(--border)",
-                display: "flex", alignItems: "center", justifyContent: "center",
-                fontSize: "clamp(12px, 2vw, 14px)", textDecoration: "none", color: "var(--muted)",
-                transition: "border-color 0.3s, color 0.3s, background 0.3s",
-              }}>
-                  {s}
-                
-                </a>
+            {socials.map((s) => (
+              <a
+                key={s.label}
+                href={s.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-icon"
+                style={{
+                  width: "clamp(30px, 5vw, 36px)",
+                  height: "clamp(30px, 5vw, 36px)",
+                  border: "1px solid var(--border)",
+                  display: "flex", alignItems: "center", justifyContent: "center",
+                  fontSize: "clamp(12px, 2vw, 14px)",
+                  textDecoration: "none", color: "var(--muted)",
+                  transition: "border-color 0.3s, color 0.3s",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.borderColor = "var(--gold)";
+                  e.currentTarget.style.color = "var(--gold)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.borderColor = "var(--border)";
+                  e.currentTarget.style.color = "var(--muted)";
+                }}
+              >
+                {s.label}
+              </a>
             ))}
           </div>
         </div>
 
-        {[
-          {
-            title: "Services",
-            links: ["Website Development", "App Development", "UI/UX Design", "Branding", "Social Media", "Digital Strategy"],
-            href: "#services",
-          },
-          {
-            title: "Company",
-            links: ["About Davaris", "Our Process", "Portfolio", "Testimonials", "Contact"],
-            hrefs: ["#about", "#process", "#portfolio", "#testimonials", "#contact"],
-          },
-          {
-            title: "Contact",
-            links: ["hello@davaris.com", "WhatsApp Chat", "Book a Call", "Instagram", "LinkedIn"],
-            hrefs: ["mailto:hello@davaris.com", "#", "#", "#", "#"],
-          },
-        ].map((col) => (
-          <div key={col.title} className={`footer-col footer-${col.title.toLowerCase()}`}>
-            <h4 style={{ fontFamily: "var(--font-ui)", fontSize: "clamp(8px, 1.5vw, 10px)", fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--gold)", marginBottom: 20 }}>{col.title}</h4>
-            <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: 10 }}>
-              {col.links.map((l, i) => (
-                <li key={l}>
-                  <Link href={(col.hrefs ? col.hrefs[i] : col.href) ?? "#"} className="footer-link" style={{ fontSize: "clamp(11px, 1.8vw, 13px)", color: "var(--muted)", textDecoration: "none" }}>
-                    {l}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
+        {/* ── Services Column ── */}
+        <div className="footer-col footer-services">
+          <h4 style={{
+            fontFamily: "var(--font-ui)", fontSize: "clamp(8px, 1.5vw, 10px)",
+            fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase",
+            color: "var(--gold)", marginBottom: 20,
+          }}>
+            Services
+          </h4>
+          <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: 10 }}>
+            {serviceLinks.map((label) => (
+              <li key={label}>
+                <a
+                  href="#services"
+                  onClick={(e) => { e.preventDefault(); scrollTo("services"); }}
+                  style={linkStyle}
+                  onMouseEnter={(e) => (e.currentTarget.style.color = "var(--white)")}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = "var(--muted)")}
+                >
+                  {label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* ── Company Column ── */}
+        <div className="footer-col footer-company">
+          <h4 style={{
+            fontFamily: "var(--font-ui)", fontSize: "clamp(8px, 1.5vw, 10px)",
+            fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase",
+            color: "var(--gold)", marginBottom: 20,
+          }}>
+            Company
+          </h4>
+          <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: 10 }}>
+            {companyLinks.map(({ label, id }) => (
+              <li key={id}>
+                <a
+                  href={`#${id}`}
+                  onClick={(e) => { e.preventDefault(); scrollTo(id); }}
+                  style={linkStyle}
+                  onMouseEnter={(e) => (e.currentTarget.style.color = "var(--white)")}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = "var(--muted)")}
+                >
+                  {label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* ── Contact Column ── */}
+        <div className="footer-col footer-contact">
+          <h4 style={{
+            fontFamily: "var(--font-ui)", fontSize: "clamp(8px, 1.5vw, 10px)",
+            fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase",
+            color: "var(--gold)", marginBottom: 20,
+          }}>
+            Contact
+          </h4>
+          <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: 10 }}>
+            {contactLinks.map(({ label, href, external }) => (
+              <li key={label}>
+                <a
+                  href={href}
+                  target={external ? "_blank" : undefined}
+                  rel={external ? "noopener noreferrer" : undefined}
+                  style={linkStyle}
+                  onMouseEnter={(e) => (e.currentTarget.style.color = "var(--white)")}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = "var(--muted)")}
+                >
+                  {label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
       </footer>
 
-      <div style={{
-        padding: "clamp(16px, 3vw, 24px) clamp(16px, 5vw, 60px)", borderTop: "1px solid var(--border)",
-        display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 12,
-      }} className="footer-bottom">
-        <p style={{ fontSize: "clamp(10px, 1.5vw, 12px)", color: "rgba(245,244,240,0.25)" }}>© 2026 Davaris. All rights reserved.</p>
-        <div style={{ display: "flex", gap: "clamp(12px, 2vw, 24px)" }} className="footer-bottom-links">
-          {["Privacy Policy", "Terms of Service"].map((l) => (
-            <Link key={l} href="#" className = "footer-link" style={{ fontSize: "clamp(9px, 1.5vw, 11px)", color: "rgba(245,244,240,0.25)", textDecoration: "none" }}>{l}</Link>
+      {/* ── Footer Bottom ── */}
+      <div
+        className="footer-bottom"
+        style={{
+          padding: "clamp(16px, 3vw, 24px) clamp(16px, 5vw, 60px)",
+          borderTop: "1px solid var(--border)",
+          display: "flex", justifyContent: "space-between",
+          alignItems: "center", flexWrap: "wrap", gap: 12,
+        }}
+      >
+        <p style={{ fontSize: "clamp(10px, 1.5vw, 12px)", color: "rgba(245,244,240,0.25)" }}>
+          © {new Date().getFullYear()} Davaris. All rights reserved.
+        </p>
+        <div
+          className="footer-bottom-links"
+          style={{ display: "flex", gap: "clamp(12px, 2vw, 24px)" }}
+        >
+          {["Privacy Policy", "Terms of Service"].map((label) => (
+            <a
+              key={label}
+              href="#"
+              style={{
+                fontSize: "clamp(9px, 1.5vw, 11px)",
+                color: "rgba(245,244,240,0.25)",
+                textDecoration: "none",
+                transition: "color 0.3s",
+              }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = "var(--muted)")}
+              onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(245,244,240,0.25)")}
+            >
+              {label}
+            </a>
           ))}
         </div>
       </div>
