@@ -19,3 +19,4 @@ export const SITE_CONFIG = {
   // Contact
   email: "immanuelfaniyi11@gmail.com",
 };
+
