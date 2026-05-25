@@ -1,11 +1,11 @@
 export const SITE_CONFIG = {
-  // WhatsApp — replace with the real phone number (international format, no + or spaces)
+//Whatsapp Number
   whatsapp: {
-    number: "2348012345678",
+    number: "2348138105673",
     message: "Hi Davaris! I'd like to discuss a project.",
   },
 
-  // Calendly — paste your Calendly link here
+  // Calendly: Calendly link here
   calendly: "https://calendly.com/davaris/consultation",
 
   // Social media
@@ -17,5 +17,5 @@ export const SITE_CONFIG = {
   },
 
   // Contact
-  email: "hello@davaris.com",
+  email: "immanuelfaniyi11@gmail.com",
 };

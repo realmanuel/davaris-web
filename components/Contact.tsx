@@ -54,12 +54,12 @@ export default function Contact() {
   )}`;
 
   const contactMethods = [
-    { icon: "✉",  label: "Email Us",    value: SITE_CONFIG.email,              href: `mailto:${SITE_CONFIG.email}`,   external: false },
+    { icon: "✉",  label: "Email Us",    value: "hello@davaris.io",              href: `mailto:${SITE_CONFIG.email}`,   external: false },
     { icon: "💬", label: "WhatsApp",    value: "Chat With Us Directly",         href: whatsappUrl,                     external: true  },
     { icon: "📅", label: "Book a Call", value: "Schedule a Free Consultation",  href: SITE_CONFIG.calendly,            external: true  },
   ];
 
-  // Reused styles (matching your existing ones exactly)
+  // Reused styles 
   const labelStyle: React.CSSProperties = {
     fontFamily: "var(--font-ui)",
     fontSize: "clamp(8px, 1.5vw, 10px)",
