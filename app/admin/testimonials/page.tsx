@@ -63,14 +63,16 @@
         else setLoading(false);
     }, [pw]);
 
-    const base: React.CSSProperties = {
-        background: "#080808", minHeight: "100vh",
-        color: "#f5f4f0", fontFamily: "sans-serif", padding: "clamp(20px, 5vw, 40px)",
-    };
+const base: React.CSSProperties = {
+background: "#080808", minHeight: "100vh",
+color: "#f5f4f0", fontFamily: "sans-serif",
+padding: "clamp(20px, 5vw, 40px)",
+cursor: "default",
+};
 
     // ── Password gate ──
     if (!authed) return (
-        <div style={{ ...base, display: "flex", alignItems: "center", justifyContent: "center" }}>
+        <div style={{ ...base, display: "flex", alignItems: "center", justifyContent: "center", cursor: "default" }}>
         <div style={{ width: "100%", maxWidth: 360, textAlign: "center" }}>
             <h1 style={{ color: "#C8A96E", marginBottom: 8, fontFamily: "Georgia, serif", fontWeight: 300 }}>Admin</h1>
             <p style={{ color: "rgba(245,244,240,0.4)", fontSize: 13, marginBottom: 28 }}>Enter your admin password</p>
@@ -173,6 +175,16 @@
 
     return (
         <div style={base}>
+            <style>
+                {`
+                    body { cursor: default !important; }
+                    * { cursor: inherit; }
+                    button, a { cursor: pointer !important; }
+                    input { cursor: text !important; }
+                `}
+            
+
+            </style>
         <div style={{ maxWidth: 800, margin: "0 auto" }}>
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 32, flexWrap: "wrap", gap: 12 }}>
             <div>
