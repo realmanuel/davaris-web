@@ -427,46 +427,38 @@ const displayList = testimonials.length > 0
       }
     }}
   >
-    <style>{`
-      .testimonials-scroll-inner::-webkit-scrollbar { display: none; }
-      @keyframes testimonial-scroll {
-        from { transform: translateX(0); }
-        to   { transform: translateX(-50%); }
-      }
-      @media (hover: hover) {
-        .testimonials-scroll-inner { overflow-x: hidden !important; }
-        .testimonials-track-inner  { animation: testimonial-scroll 30s linear infinite; }
-        .testimonials-track-inner:hover { animation-play-state: paused; }
-      }
-      @media (hover: none) {
-        .testimonials-scroll-inner { overflow-x: auto !important; scroll-snap-type: x mandatory; }
-        .testimonials-card         { scroll-snap-align: start; }
-        .testimonials-track-inner  { animation: none !important; }
-      }
-    `}</style>
+<style>{`
+  .testimonials-track-inner::-webkit-scrollbar { display: none; }
+  .testimonials-track-inner {
+    animation: testimonial-scroll ${testimonials.length * 6}s linear infinite;
+  }
+  .testimonials-track-inner:hover {
+    animation-play-state: paused;
+  }
+  @keyframes testimonial-scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+`}</style>
 
-    <div
-      className="testimonials-scroll-inner"
-      style={{
-        overflow: "hidden",
-        paddingLeft: "clamp(16px, 5vw, 60px)",
-        paddingRight: "clamp(16px, 5vw, 60px)",
-        paddingBottom: 8,
-      }}
-    >
-      <div
-        className="testimonials-track-inner"
-        style={{
-          display: "flex",
-          gap: "clamp(14px, 3vw, 24px)",
-          width: "max-content",
-        }}
-      >
-        {displayList.map((t, i) => (
-          <Card key={`${t.id}-${i}`} t={t} />
-        ))}
-      </div>
-    </div>
+<div style={{
+  overflow: "hidden",
+  paddingLeft: "clamp(16px, 5vw, 60px)",
+  paddingBottom: 8,
+}}>
+  <div
+    className="testimonials-track-inner"
+    style={{
+      display: "flex",
+      gap: "clamp(14px, 3vw, 24px)",
+      width: "max-content",
+    }}
+  >
+    {displayList.map((t, i) => (
+      <Card key={`${t.id}-${i}`} t={t} />
+    ))}
+  </div>
+</div>
   </div>
 )}
     </section>
