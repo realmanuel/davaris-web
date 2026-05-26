@@ -169,6 +169,9 @@ body::before {
 /* Mobile */
 @media (max-width: 768px) {
   .hide-mobile { display: none !important; }
+  .nav-cta{
+    display: none !important;
+  }
   
   /* Base spacing */
   section {
