@@ -18,18 +18,18 @@ const Card = ({ t }: { t: Testimonial }) => (
   <div
     className="testimonials-card"
     style={{
-      width: "clamp(300px, 35vw, 400px)",
+      width: "clamp(260px, 80vw, 400px)",
       flexShrink: 0,
       background: "var(--dark)",
       border: "1px solid var(--border)",
-      padding: "clamp(24px, 4vw, 40px)",
+      padding: "clamp(20px, 4vw, 40px)",
       position: "relative",
     }}
   >
     <div style={{
       position: "absolute",
-      top: "clamp(20px, 3vw, 40px)",
-      right: "clamp(20px, 3vw, 40px)",
+      top: "clamp(16px, 3vw, 40px)",
+      right: "clamp(16px, 3vw, 40px)",
       color: "var(--gold)",
       fontSize: "clamp(10px, 1.5vw, 12px)",
       letterSpacing: 2,
@@ -38,14 +38,15 @@ const Card = ({ t }: { t: Testimonial }) => (
     </div>
     <div style={{
       fontFamily: "var(--font-display)",
-      fontSize: "clamp(40px, 8vw, 64px)",
+      fontSize: "clamp(36px, 8vw, 64px)",
       color: "var(--gold)", opacity: 0.3,
       lineHeight: 0.8, marginBottom: 16,
     }}>"</div>
     <p style={{
       fontSize: "clamp(12px, 1.8vw, 14px)",
       color: "var(--muted)", lineHeight: 1.8,
-      marginBottom: 28, fontStyle: "italic",
+      marginBottom: "clamp(16px, 3vw, 28px)",
+      fontStyle: "italic",
     }}>
       {t.text}
     </p>
@@ -70,10 +71,7 @@ const Card = ({ t }: { t: Testimonial }) => (
         }}>
           {t.name}
         </div>
-        <div style={{
-          fontSize: "clamp(9px, 1.5vw, 11px)",
-          color: "var(--muted)",
-        }}>
+        <div style={{ fontSize: "clamp(9px, 1.5vw, 11px)", color: "var(--muted)" }}>
           {t.role}
         </div>
       </div>
@@ -386,46 +384,91 @@ const displayList = testimonials.length > 0
         </div>
       )}
 
-      {/* ── Scrolling Cards ── */}
-      {loading ? (
-        <div style={{
-          textAlign: "center", padding: "60px 0",
-          color: "var(--muted)", fontFamily: "var(--font-ui)",
-          fontSize: 12, letterSpacing: "0.15em", textTransform: "uppercase",
-        }}>
-          Loading reviews...
-        </div>
-      ) : displayList.length === 0 ? (
-        <div style={{
-          textAlign: "center", padding: "60px clamp(16px, 5vw, 60px)",
-          color: "var(--muted)",
-        }}>
-          <p style={{ fontFamily: "var(--font-display)", fontSize: "clamp(20px, 3vw, 28px)", fontWeight: 300, marginBottom: 12 }}>
-            No reviews yet.
-          </p>
-          <p style={{ fontSize: 14 }}>Be the first to share your experience.</p>
-        </div>
-      ) : (
-        <div style={{ overflow: "hidden", marginTop: "clamp(24px, 5vw, 48px)" }}>
-          <div
-            style={{
-              display: "flex",
-              gap: "clamp(16px, 3vw, 24px)",
-              animation: shouldLoop ? "scroll 30s linear infinite" : "none",
-              width: "max-content",
-              paddingLeft: "clamp(16px, 5vw, 60px)",
-            }}
-            onMouseEnter={(e) => {
-              if (shouldLoop) (e.currentTarget as HTMLElement).style.animationPlayState = "paused";
-            }}
-            onMouseLeave={(e) => {
-              if (shouldLoop) (e.currentTarget as HTMLElement).style.animationPlayState = "running";
-            }}
-          >
-            {displayList.map((t, i) => <Card key={`${t.id}-${i}`} t={t} />)}
-          </div>
-        </div>
-      )}
+{/* ── Scrolling Cards ── */}
+{loading ? (
+  <div style={{
+    textAlign: "center", padding: "60px 0",
+    color: "var(--muted)", fontFamily: "var(--font-ui)",
+    fontSize: 12, letterSpacing: "0.15em", textTransform: "uppercase",
+  }}>
+    Loading reviews...
+  </div>
+) : displayList.length === 0 ? (
+  <div style={{
+    textAlign: "center",
+    padding: "60px clamp(16px, 5vw, 60px)",
+    color: "var(--muted)",
+  }}>
+    <p style={{
+      fontFamily: "var(--font-display)",
+      fontSize: "clamp(20px, 3vw, 28px)",
+      fontWeight: 300, marginBottom: 12,
+    }}>
+      No reviews yet.
+    </p>
+    <p style={{ fontSize: 14 }}>Be the first to share your experience.</p>
+  </div>
+) : (
+  <div style={{
+    // Outer wrapper — hides overflow and allows touch scroll on mobile
+    overflowX: "auto",
+    overflowY: "hidden",
+    WebkitOverflowScrolling: "touch" as React.CSSProperties["WebkitOverflowScrolling"],
+    // Hide scrollbar visually but keep it functional
+    scrollbarWidth: "none" as React.CSSProperties["scrollbarWidth"],
+    msOverflowStyle: "none" as React.CSSProperties["msOverflowStyle"],
+    marginTop: "clamp(24px, 5vw, 48px)",
+    cursor: "grab",
+  }}
+    // Hide webkit scrollbar via ref trick — we handle with CSS below
+    ref={(el) => {
+      if (el) {
+        el.style.cssText += "; scrollbar-width: none; -ms-overflow-style: none;";
+      }
+    }}
+  >
+    <style>{`
+      .testimonials-scroll-inner::-webkit-scrollbar { display: none; }
+      @keyframes testimonial-scroll {
+        from { transform: translateX(0); }
+        to   { transform: translateX(-50%); }
+      }
+      @media (hover: hover) {
+        .testimonials-scroll-inner { overflow-x: hidden !important; }
+        .testimonials-track-inner  { animation: testimonial-scroll 30s linear infinite; }
+        .testimonials-track-inner:hover { animation-play-state: paused; }
+      }
+      @media (hover: none) {
+        .testimonials-scroll-inner { overflow-x: auto !important; scroll-snap-type: x mandatory; }
+        .testimonials-card         { scroll-snap-align: start; }
+        .testimonials-track-inner  { animation: none !important; }
+      }
+    `}</style>
+
+    <div
+      className="testimonials-scroll-inner"
+      style={{
+        overflow: "hidden",
+        paddingLeft: "clamp(16px, 5vw, 60px)",
+        paddingRight: "clamp(16px, 5vw, 60px)",
+        paddingBottom: 8,
+      }}
+    >
+      <div
+        className="testimonials-track-inner"
+        style={{
+          display: "flex",
+          gap: "clamp(14px, 3vw, 24px)",
+          width: "max-content",
+        }}
+      >
+        {displayList.map((t, i) => (
+          <Card key={`${t.id}-${i}`} t={t} />
+        ))}
+      </div>
+    </div>
+  </div>
+)}
     </section>
   );
 }
