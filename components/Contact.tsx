@@ -56,7 +56,7 @@ export default function Contact() {
   const contactMethods = [
     { icon: "✉",  label: "Email Us",    value: "hello@davaris.io",              href: `mailto:${SITE_CONFIG.email}`,   external: false, disabled:false, },
     { icon: "💬", label: "WhatsApp",    value: "Chat With Us Directly",         href: whatsappUrl,                     external: true, disabled:false, },
-    { icon: "📅", label: "Book a Call", value: "Schedule a Free Consultation",  href: SITE_CONFIG.calendly,            external: true, disabled:true,  },
+    { icon: "📅", label: "Book a Call", value: "Schedule a Free Consultation",  href: SITE_CONFIG.calendly,            external: true, disabled:false,  },
   ];
 
   // Reused styles 

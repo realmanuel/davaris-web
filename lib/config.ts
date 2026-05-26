@@ -6,7 +6,7 @@ export const SITE_CONFIG = {
   },
 
   // Calendly: Calendly link here
-  calendly: "https://calendly.com/davaris/consultation",
+  calendly: "https://calendly.com/davarisio",
 
   // Social media
   socials: {
