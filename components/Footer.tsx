@@ -33,7 +33,7 @@ export default function Footer() {
   ];
 
   const contactLinks = [
-    { label: "hello@davaris.io", href: `mailto:${SITE_CONFIG.email}`, external: true, disabled:true,},
+    { label: "hello@davaris.io", href: `mailto:${SITE_CONFIG.email}`, external: true, disabled:false,},
     { label: "WhatsApp Chat", href: `https://wa.me/${SITE_CONFIG.whatsapp.number}`,  external: true, disabled:false,},
     { label: "Book a Call", href: SITE_CONFIG.calendly, external: true, disabled:true,},
     { label: "Instagram", href: SITE_CONFIG.socials.instagram, external: true, disabled:true,},

@@ -17,6 +17,6 @@ export const SITE_CONFIG = {
   },
 
   // Contact
-  email: "davarisio1@gmail.com",
+  email: "davaris.io1@gmail.com",
 };
 

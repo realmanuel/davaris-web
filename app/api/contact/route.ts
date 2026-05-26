@@ -20,7 +20,7 @@ export async function POST(req: NextRequest) {
     // Email to Davaris team — notification of new inquiry
     const { error: notifyError } = await resend.emails.send({
       from:    'Davaris Contact <onboarding@resend.dev>', // replace with your verified domain e.g. no-reply@davaris.com
-      to:      ['davarisio1@gmail.com'],                     // replace with real receiving email
+      to:      ['davaris.io1@gmail.com'],                     // replace with real receiving email
       replyTo: email,
       subject: `New Inquiry from ${name}${service ? ` — ${service}` : ''}`,
       html: `
