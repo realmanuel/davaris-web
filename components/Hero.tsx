@@ -55,7 +55,7 @@ export default function Hero() {
       </div>
 
       <div style={{ opacity: 0, animation: "fadeUp 0.8s 0.3s forwards", fontFamily: "var(--font-ui)", fontSize: 11, fontWeight: 500, letterSpacing: "0.25em", textTransform: "uppercase", color: "var(--gold)", marginBottom: 24 }}>
-        Digital Agency · Est. 2024
+        Digital Agency · Est. 2026
       </div>
 
       <h1 style={{

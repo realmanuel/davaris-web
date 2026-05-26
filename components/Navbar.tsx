@@ -61,7 +61,7 @@ export default function Navbar() {
             cursor: "pointer",
           }}
         >
-          DAV<span style={{ color: "var(--gold)" }}>A</span>RIS
+          DAV<span style={{ color: "var(--gold)" }}>A</span>RIS.<span style={{ color: "var(--gold)" }}>IO</span>
         </a>
 
         {/* Desktop Links */}

@@ -14,7 +14,7 @@ const FOUNDER = {
   initials:  "OD",
   name:      "Osasenaga David",
   title:     "Founder & MD/CEO",
-  quote:     "We started Davaris with one belief - that great digital work should be accessible to every ambitious brand, not just the biggest ones. Every project we take on, we treat as if it were our own.",
+  quote:     "We started Davaris.io with one belief; that great digital work should be accessible to every ambitious brand, not just the biggest ones. Every project we take on, we treat as if it were our own.",
 };
 
 export default function About() {
@@ -39,7 +39,7 @@ export default function About() {
         }}>
           <img
             src="/Davaris.jpg"
-            alt="Davaris"
+            alt="Davaris.io"
             style={{ width: "100%", height: "100%", objectFit: "cover" }}
           />
         </div>
@@ -81,9 +81,9 @@ export default function About() {
           fontSize: "clamp(13px, 2vw, 15px)", color: "var(--muted)",
           lineHeight: 1.8, margin: "clamp(16px, 4vw, 28px) 0 clamp(12px, 3vw, 20px)",
         }}>
-          Davaris was built for ambitious brands that refuse to be average. We combine
+          Davaris.io was built for ambitious brands that refuse to be average. We combine
           strategy, design, and technology to create digital platforms that don't just
-          look good — they perform.
+          look good, they perform.
         </p>
 
         <p className="reveal reveal-delay-3" style={{
@@ -142,7 +142,7 @@ export default function About() {
             marginBottom: "clamp(16px, 3vw, 20px)",
             paddingRight: "clamp(16px, 4vw, 32px)",
           }}>
-            "{FOUNDER.quote}"
+            &quot;{FOUNDER.quote}&quot;
           </p>
 
           {/* Founder info */}

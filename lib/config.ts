@@ -1,7 +1,7 @@
 export const SITE_CONFIG = {
 //Whatsapp Number
   whatsapp: {
-    number: "2348138105673",
+    number: "2348121984309",
     message: "Hi Davaris! I'd like to discuss a project.",
   },
 
@@ -17,6 +17,6 @@ export const SITE_CONFIG = {
   },
 
   // Contact
-  email: "immanuelfaniyi11@gmail.com",
+  email: "davarisio1@gmail.com",
 };
 

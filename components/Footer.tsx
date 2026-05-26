@@ -25,26 +25,26 @@ export default function Footer() {
   ];
 
   const companyLinks = [
-    { label: "About Davaris",  id: "about"        },
-    { label: "Our Process",    id: "process"      },
-    { label: "Portfolio",      id: "portfolio"    },
-    { label: "Testimonials",   id: "testimonials" },
-    { label: "Contact",        id: "contact"      },
+    { label: "About Davaris.io",  id: "about"},
+    { label: "Our Process",    id: "process"},
+    { label: "Portfolio",      id: "portfolio"},
+    { label: "Testimonials",   id: "testimonials"},
+    { label: "Contact",        id: "contact"},
   ];
 
   const contactLinks = [
-    { label: SITE_CONFIG.email,          href: `mailto:${SITE_CONFIG.email}`,                                                             external: true  },
-    { label: "WhatsApp Chat",            href: `https://wa.me/${SITE_CONFIG.whatsapp.number}`,                                            external: true  },
-    { label: "Book a Call",              href: SITE_CONFIG.calendly,                                                                       external: true  },
-    { label: "Instagram",                href: SITE_CONFIG.socials.instagram,                                                              external: true  },
-    { label: "LinkedIn",                 href: SITE_CONFIG.socials.linkedin,                                                               external: true  },
+    { label: "hello@davaris.io", href: `mailto:${SITE_CONFIG.email}`, external: true, disabled:true,},
+    { label: "WhatsApp Chat", href: `https://wa.me/${SITE_CONFIG.whatsapp.number}`,  external: true, disabled:false,},
+    { label: "Book a Call", href: SITE_CONFIG.calendly, external: true, disabled:true,},
+    { label: "Instagram", href: SITE_CONFIG.socials.instagram, external: true, disabled:true,},
+    { label: "LinkedIn", href: SITE_CONFIG.socials.linkedin, external: true, disabled:true,},
   ];
 
   const socials = [
-    { label: "in", href: SITE_CONFIG.socials.linkedin  },
-    { label: "IG", href: SITE_CONFIG.socials.instagram },
-    { label: "𝕏",  href: SITE_CONFIG.socials.twitter   },
-    { label: "Be", href: SITE_CONFIG.socials.behance   },
+    { label: "in", href: SITE_CONFIG.socials.linkedin, disabled:true,},
+    { label: "IG", href: SITE_CONFIG.socials.instagram,},
+    { label: "𝕏",  href: SITE_CONFIG.socials.twitter, disabled:true,},
+    { label: "Be", href: SITE_CONFIG.socials.behance, disabled:true,},
   ];
 
   return (
@@ -77,7 +77,7 @@ export default function Footer() {
             }}
           >
             Building digital futures for ambitious brands. Premium design,
-            development, and strategy — all under one roof.
+            development, and strategy - all under one roof.
           </p>
 
           {/* Socials */}
@@ -85,7 +85,7 @@ export default function Footer() {
             {socials.map((s) => (
               <a
                 key={s.label}
-                href={s.href}
+                href={s.disabled ?undefined: s.href}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="social-icon"
@@ -175,13 +175,18 @@ export default function Footer() {
             Contact
           </h4>
           <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: 10 }}>
-            {contactLinks.map(({ label, href, external }) => (
+            {contactLinks.map(({ label, href, external, disabled }) => (
               <li key={label}>
                 <a
-                  href={href}
-                  target={external ? "_blank" : undefined}
-                  rel={external ? "noopener noreferrer" : undefined}
-                  style={linkStyle}
+                  href={disabled ? undefined: href}
+                  target={!disabled && external ? "_blank" : undefined}
+                  rel={!disabled && external ? "noopener noreferrer" : undefined}
+                  style={{
+                          ...linkStyle,
+                          opacity: disabled ? 0.45 : 1,
+                          pointerEvents: disabled ? "none" : "auto",
+                          cursor: disabled ? "not-allowed" : "pointer"
+                        }}
                   onMouseEnter={(e) => (e.currentTarget.style.color = "var(--white)")}
                   onMouseLeave={(e) => (e.currentTarget.style.color = "var(--muted)")}
                 >

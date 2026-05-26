@@ -29,7 +29,7 @@ export default function CtaSection() {
         fontSize: "clamp(13px, 2vw, 15px)", color: "var(--muted)",
         maxWidth: 480, margin: "0 auto clamp(24px, 5vw, 48px)", lineHeight: 1.7,
       }}>
-        Let's talk about your project and how Davaris can help you grow. No fluff — just real conversations about real results.
+        Let's talk about your project and how Davaris can help you grow. No fluff - just real conversations about real results.
       </p>
       <div className="reveal reveal-delay-3 cta-actions" style={{ display: "flex", gap: "clamp(12px, 3vw, 20px)", justifyContent: "center", alignItems: "center", flexWrap: "wrap" }}>
         <Link href="#contact" className="btn-primary">Work With Us</Link>

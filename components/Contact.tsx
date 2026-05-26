@@ -54,9 +54,9 @@ export default function Contact() {
   )}`;
 
   const contactMethods = [
-    { icon: "✉",  label: "Email Us",    value: "hello@davaris.io",              href: `mailto:${SITE_CONFIG.email}`,   external: false },
-    { icon: "💬", label: "WhatsApp",    value: "Chat With Us Directly",         href: whatsappUrl,                     external: true  },
-    { icon: "📅", label: "Book a Call", value: "Schedule a Free Consultation",  href: SITE_CONFIG.calendly,            external: true  },
+    { icon: "✉",  label: "Email Us",    value: "hello@davaris.io",              href: `mailto:${SITE_CONFIG.email}`,   external: false, disabled:false, },
+    { icon: "💬", label: "WhatsApp",    value: "Chat With Us Directly",         href: whatsappUrl,                     external: true, disabled:false, },
+    { icon: "📅", label: "Book a Call", value: "Schedule a Free Consultation",  href: SITE_CONFIG.calendly,            external: true, disabled:true,  },
   ];
 
   // Reused styles 
@@ -108,7 +108,7 @@ export default function Contact() {
             margin: "clamp(16px, 4vw, 24px) 0 clamp(24px, 5vw, 48px)",
           }}
         >
-          Whether you have a clear project brief or just an idea — we're here
+          Whether you have a clear project brief or just an idea - we're here
           to help you shape it into something real.
         </p>
 
@@ -116,7 +116,7 @@ export default function Contact() {
           {contactMethods.map((m) => (
             <a
               key={m.label}
-              href={m.href}
+              href={m.disabled ? undefined: m.href}
               target={m.external ? "_blank" : undefined}
               rel={m.external ? "noopener noreferrer" : undefined}
               className="contact-item"
