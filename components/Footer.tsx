@@ -40,6 +40,11 @@ export default function Footer() {
     { label: "LinkedIn", href: SITE_CONFIG.socials.linkedin, external: true, disabled:true,},
   ];
 
+  const legal = [
+    {label: "Privacy Policy", href: "/privacy-policy"},
+    {label: "Terms of Service", href: "/terms-of-service"},
+  ]
+
   const socials = [
     { label: "in", href: SITE_CONFIG.socials.linkedin, disabled:true,},
     { label: "IG", href: SITE_CONFIG.socials.instagram,},
@@ -215,10 +220,10 @@ export default function Footer() {
           className="footer-bottom-links"
           style={{ display: "flex", gap: "clamp(12px, 2vw, 24px)" }}
         >
-          {["Privacy Policy", "Terms of Service"].map((label) => (
+          {legal.map((l) => (
             <a
-              key={label}
-              href="#"
+              key={l.label}
+              href={l.href}
               style={{
                 fontSize: "clamp(9px, 1.5vw, 11px)",
                 color: "rgba(245,244,240,0.25)",
@@ -228,7 +233,7 @@ export default function Footer() {
               onMouseEnter={(e) => (e.currentTarget.style.color = "var(--muted)")}
               onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(245,244,240,0.25)")}
             >
-              {label}
+              {l.label}
             </a>
           ))}
         </div>
