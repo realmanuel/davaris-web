@@ -2,7 +2,10 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Davaris — Building Digital Futures",
+  title: "Davaris.io — Building Digital Futures",
+  icons: {
+    icon: "/icon.jpg",
+  },
   description:
     "Davaris is a premium digital agency crafting websites, apps, brands, and strategies.",
 };
