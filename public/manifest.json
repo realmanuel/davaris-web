@@ -1,0 +1,21 @@
+{
+  "name": "Davaris — Building Digital Futures",
+  "short_name": "Davaris",
+  "description": "Premium digital agency crafting websites, apps, brands, and strategies that turn visitors into loyal clients.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#080808",
+  "theme_color": "#C8A96E",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
