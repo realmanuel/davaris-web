@@ -4,11 +4,11 @@ import { useReveal } from "@/hooks/useReveal";
 
 const services = [
   { num: "01", name: "Website Development", desc: "Fast, modern, and conversion-focused websites built to perform. Custom-built for speed, usability, and results." },
-  { num: "02", name: "Mobile App Development", desc: "Native and cross-platform apps designed around your users. From MVP to enterprise — built to scale." },
+  { num: "02", name: "Mobile App Development", desc: "Native and cross-platform apps designed around your users. From MVP to enterprise - built to scale." },
   { num: "03", name: "UI/UX Design", desc: "Interfaces that feel intuitive, look beautiful, and drive action. Rooted in user psychology and brand identity." },
-  { num: "04", name: "Branding", desc: "Identity systems that make your brand impossible to ignore. Logo, color, typography — your full visual language." },
+  { num: "04", name: "Branding", desc: "Identity systems that make your brand impossible to ignore. Logo, color, typography, your full visual language." },
   { num: "05", name: "Social Media Management", desc: "Content, strategy, and growth across every relevant platform. Consistent, on-brand, and always performing." },
-  { num: "06", name: "Digital Strategy", desc: "Data-driven plans that align your digital efforts with real business goals. Clarity before execution — every time." },
+  { num: "06", name: "Digital Strategy", desc: "Data-driven plans that align your digital efforts with real business goals. Clarity before execution every time." },
 ];
 
 export default function Services() {
@@ -28,7 +28,7 @@ export default function Services() {
         </div>
         <div className="reveal reveal-delay-2" style={{ maxWidth: 360 }}>
           <p style={{ fontSize: "clamp(13px, 2vw, 15px)", color: "var(--muted)", lineHeight: 1.7, marginBottom: 24 }}>
-            From first impression to final conversion — we handle every layer of your digital presence with precision.
+            From first impression to final conversion, we handle every layer of your digital presence with precision.
           </p>
           <Link href="#contact" className="btn-primary">Explore All Services</Link>
         </div>

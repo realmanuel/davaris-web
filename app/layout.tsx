@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Davaris.io — Building Digital Futures",
+  title: "Davaris.io - Building Digital Futures",
   icons: {
     icon: "/favicon.png",
   },
