@@ -209,7 +209,7 @@ export default function Contact() {
               Message Sent!
             </h3>
             <p style={{ color: "var(--muted)", fontSize: "clamp(13px, 2vw, 15px)", lineHeight: 1.7, maxWidth: 340 }}>
-              Thanks for reaching out. We'll get back to you within 24–48 hours.
+              Thanks for reaching out. We'll get back to you within 24-48 hours.
               Check your inbox for a confirmation email.
             </p>
             <button
