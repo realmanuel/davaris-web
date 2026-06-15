@@ -7,11 +7,11 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
 
   title: {
-    default: "Davaris - Building Digital Futures for Ambitious Brands",
+    default: "Davaris | Premium Digital Agency in Nigeria",
     template: "%s | Davaris",
   },
   description:
-    "Davaris is a premium digital agency crafting websites, apps, brands, and strategies that turn visitors into loyal clients. Web design, development, branding, and digital strategy.",
+    "Davaris is a premium digital agency in Nigeria helping businesses grow through web design, software development, branding, SEO, and digital marketing.",
 
   keywords: [
     "digital agency",
@@ -121,7 +121,7 @@ export const metadata: Metadata = {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Davaris — Digital Agency",
+        alt: "Davaris - Digital Agency",
       },
     ],
   },
@@ -140,9 +140,10 @@ export const metadata: Metadata = {
   icons: {
     // ← Place these files in /public/
     icon: [
+      { url: "/favicon.ico", type: "image/x-icon" },
       { url: "/favicon.png", sizes: "any" },
-      { url: "/favicon-192.png", sizes: "192x192", type: "image/png" },
-      { url: "/favicon-512.png", sizes: "512x512", type: "image/png" },
+      { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
+      { url: "/icon-512.png", sizes: "512x512", type: "image/png" },
     ],
     apple: "/apple-touch-icon.png", // ← 180x180px
   },
@@ -194,7 +195,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "ProfessionalService",
+              "@type": ["Organization", "ProfessionalService"],
               name: "Davaris",
               description:
                 "Davaris is a premium digital agency crafting websites, apps, brands, and strategies that turn visitors into loyal clients.",
@@ -221,6 +222,10 @@ export default function RootLayout({
                 "@type": "Place",
                 name: "Worldwide",
               },
+              "founder": {
+                "@type": "Person",
+                "name": "Osasenaga David"
+              }
             }),
           }}
         />
