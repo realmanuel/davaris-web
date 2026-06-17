@@ -166,7 +166,7 @@ export const metadata: Metadata = {
   },
 
   verification: {
-    google: "google-site-verification=B_5CNraDFSUK3C8dfbbv_Y9TsvsoDB4B_0ITxSsMMZQ"
+    google: "google-site-verification=y9KHiJ-WboMr_rJEC3r9bXOZ2i4aUfamLwCNgmnwqys"
   },
 };
 
